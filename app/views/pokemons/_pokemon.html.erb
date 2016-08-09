@@ -20,7 +20,7 @@
   <div class="caption data">
     <table>
       <tr>
-        <td class="name"><%=pokemon[:poke_id]%></td>
+        <td class="name"><%=pokemon[:nickname].presence || pokemon[:poke_id]%></td>
         <td class="CP"><%=pokemon[:cp]%></td>
       </tr>
     </table>
