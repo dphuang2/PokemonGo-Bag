@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     @pokemon_atk = @user.pokemon.order("attack DESC")
     @pokemon_def = @user.pokemon.order("defense DESC")
     @pokemon_sta = @user.pokemon.order("stamina DESC")
-    @pokemon_name = @user.pokemon.order("poke_id DESC")
+    @pokemon_name = @user.pokemon.order("COALESCE(NULLIF(nickname, ''), poke_id) DESC")
     @pokemon_num = @user.pokemon.order("poke_num DESC")
     @pokemon_attack = @user.pokemon.order("battles_attacked DESC")
     @pokemon_defend = @user.pokemon.order("battles_defended DESC")
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   def refresh
   end
 
-  private 
+  private
   def not_found
     if logged_in?
       redirect_to user_link
