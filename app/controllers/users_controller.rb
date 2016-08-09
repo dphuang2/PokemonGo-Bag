@@ -33,6 +33,7 @@ class UsersController < ApplicationController
       if params[:stat] == 'poke_num' || params[:stat] == 'poke_id'
         direction = ' ASC'
       end
+      params[:stat] = "COALESCE(NULLIF(nickname, ''), poke_id)"  if params[:stat] == 'poke_id'
       @pokemon = @user.pokemon.order(params[:stat]+direction+', cp DESC, iv DESC')
     else
       @pokemon = @user.pokemon.order("cp DESC")
