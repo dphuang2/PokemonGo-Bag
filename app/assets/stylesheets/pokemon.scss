@@ -88,6 +88,18 @@
       max-width: 100%;
     }
   }
+  .image-box-type1{
+    overflow: hidden;	
+	position: absolute;
+    top: 7rem;
+	right: 7px;
+  }
+  .image-box-type2{
+    overflow: hidden;
+	position: absolute;
+    top: 8.5rem;
+	right: 7px;
+  }
   .data{
     .big-bars{
       margin-bottom: .6rem;
@@ -117,4 +129,109 @@
       }
     }
   }
+}
+.type {  
+  display: inline-block;
+  background: url(type/public_pkmn_type_icons_by_kryptonlion.png) no-repeat;
+}
+
+.normal {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -19px;
+}
+.fighting {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -34px;
+}
+.flying {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -49px;
+}
+.poison {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -64px;
+}
+.ground {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -79px;
+}
+.rock {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -94px;
+}
+.bug {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -109px;
+}
+.ghost {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -124px;
+}
+.steel {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -139px;
+}
+.fire {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -154px;
+}
+.water {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -169px;
+}
+.grass {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -184px;
+}
+.electric {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -199px;
+}
+.psychic {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -214px;
+}
+.ice {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -229px;
+}
+.dragon {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -244px;
+}
+.dark {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -259px;
+}
+.fairy {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -274px;
+}
+.unknown {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -289px;
+}
+.shadow {
+  width: 59px;
+  height: 14px;
+  background-position: -203px -304px;
 }
