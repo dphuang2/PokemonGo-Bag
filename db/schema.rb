@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807213852) do
+ActiveRecord::Schema.define(version: 20160811194700) do
 
   create_table "items", force: :cascade do |t|
     t.string   "item_id"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20160807213852) do
     t.integer  "poke_num"
     t.integer  "candy"
     t.float    "creation_time_ms"
+    t.string   "type_1"
+    t.string   "type_2"
     t.index ["user_id"], name: "index_pokemons_on_user_id"
   end
 

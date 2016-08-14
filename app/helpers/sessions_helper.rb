@@ -40,6 +40,9 @@ module SessionsHelper
     response = call.response
     file = File.read('app/assets/pokemon.en.json')
     pokemon_hash = JSON.parse(file)
+    
+    fileTypes = File.read('app/assets/pokemon.types.json')
+    pokemon_types = JSON.parse(fileTypes)
 
     #begin
     response[:GET_INVENTORY][:inventory_delta][:inventory_items].each do |item|
@@ -80,14 +83,20 @@ module SessionsHelper
             # To deal with MISSINGNO Pokemon
             if pokemon_hash.key(poke_id) != nil
               poke_num = pokemon_hash.key(poke_id)
+              type_1 = pokemon_types[poke_num]['type_1']
+              type_2 = pokemon_types[poke_num]['type_2']
             else
               poke_num = "0"
+              type_1 = ''
+              type_2 = ''             
             end
             # Instantiate pokemon
             pokemon = user.pokemon.new
             # Set data
             pokemon.poke_id = poke_id
             pokemon.poke_num = poke_num
+            pokemon.type_1 = type_1
+            pokemon.type_2 = type_2
             pokemon.creation_time_ms = i[:creation_time_ms]
             pokemon.move_1 = i[:move_1]
             pokemon.move_2 = i[:move_2]

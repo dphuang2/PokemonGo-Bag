@@ -88,6 +88,18 @@
       max-width: 100%;
     }
   }
+  .image-box-type1{
+    overflow: hidden;	
+	position: absolute;
+    top: 6.8rem;
+	right: 7px;
+  }
+  .image-box-type2{
+    overflow: hidden;
+	position: absolute;
+    top: 8.5rem;
+	right: 7px;
+  }
   .data{
     .big-bars{
       margin-bottom: .6rem;
@@ -117,4 +129,94 @@
       }
     }
   }
+}
+.type {
+  display: inline-block;
+  background: url(type/public_pkmn_type_icons_by_kryptonlion.png) no-repeat;
+}
+
+.normal {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 4.8%;
+}
+.fighting {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 8.6%;
+}
+.flying {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 12.4%;
+}
+.poison {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 16.4%;
+}
+.ground {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 20.2%;
+}
+.rock {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 24.0%;
+}
+.bug {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 27.8%;
+}
+.ghost {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 31.6%;
+}
+.steel {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 35.4%
+}
+.fire {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 39.2%;
+}
+.water {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 43.0%;
+}
+.grass {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 46.8%;
+}
+.electric {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 50.6%;
+}
+.psychic {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 54.4%;
+}
+.ice {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 58.2%;
+}
+.dragon {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 62.0%;
+}
+.fairy {
+  width: 60px;
+  height: 13px;
+  background-position: 97.4% 69.6%;
 }
