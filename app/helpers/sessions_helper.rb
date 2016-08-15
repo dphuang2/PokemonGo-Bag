@@ -28,8 +28,14 @@ module SessionsHelper
   def store_data(client, user)
     destroy_user_data(user)
     call = get_call(client, :get_inventory)
-    while call.response[:status_code] != 1
-      call = get_call(client, :get_inventory)
+    trycount = 0
+    while call.response[:status_code] != 1 
+      if trycount > 2
+        return false
+      else
+        call = get_call(client, :get_inventory)
+        trycount += 1
+      end
     end
     response = call.response
     file = File.read('app/assets/pokemon.en.json')
@@ -186,7 +192,9 @@ module SessionsHelper
     auth_objects = authorized_client(user.refresh_token, 'refresh_token')
     client = auth_objects[:client]
     user = setup_client_user_pair(client, user.refresh_token)
-    store_data(client, user)
+    while !store_data(client, user)
+      store_data(client, user)
+    end
   end
 
   def authorized_client(token, type = 'authorization_code')
