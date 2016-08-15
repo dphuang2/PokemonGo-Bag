@@ -39,6 +39,16 @@
     right: 7px;
     top: 5px;
   }
+  .moveset_primary{
+    @include metadata;
+    right: 7px;
+    top: 3.4rem;
+  }
+  .moveset_secondary{
+    @include metadata;
+    right: 7px;
+    top: 4.8rem;
+  }
   .attacked{
     @include metadata;
     width: 10%;
