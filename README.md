@@ -66,10 +66,18 @@ sudo apt-get install nodejs -y
 ```
 sudo apt-get install git -y
 ```
-4) Run these two commands: <br>
+4) Install requirements for Gems <br>
+```
+sudo apt-get install libsqlite3-dev build-essential patch zlib1g-dev liblzma-dev -y
+```
+5) Run these two commands: <br>
 ```
 gem install rails
 gem install bundler
+```
+PD: If you still have issues with gems installations, please run this:
+```
+sudo apt-get install libxslt-dev libxm12-dev -y
 ```
 
 #### Steps
