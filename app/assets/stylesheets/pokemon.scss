@@ -10,7 +10,7 @@
   color: rgba(0,0,0,.46);
 }
 .pokemon-card {
-  height: 25rem;
+  height: 27rem;
   position: relative;
   table {
     width: 100%;
@@ -77,6 +77,13 @@
     .fa-2x{
       font-size: 1.4rem;
     }
+  }
+  .nickname {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 2.0rem;
+    font-weight: bold;
+    position: relative;
   }
   .name {
     margin-top: 0px;
