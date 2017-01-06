@@ -71,44 +71,47 @@ module SessionsHelper
             count = i[:count]
             user.items.create(item_id: item_id, count: count)
           when :pokemon_data
-            # Set poke_id
-            poke_id = i[:pokemon_id].capitalize.to_s
-            # To deal with Nidoran and Mr. Mime naming
-            poke_id = 'Nidoran♀' if poke_id.match('Nidoran_female')
-            poke_id = 'Nidoran♂' if poke_id.match('Nidoran_male')
-            poke_id = 'Mr. Mime' if poke_id.match('Mr_mime')
-            poke_id = "Farfetch'd" if poke_id.match('Farfetchd')
-            # To deal with MISSINGNO Pokemon
-            if @@pokemon_hash.key(poke_id) != nil
-              poke_num = @@pokemon_hash.key(poke_id)
-            else
-              poke_num = "0"
+            begin
+              # Set poke_id
+              poke_id = i[:pokemon_id].capitalize.to_s
+              # To deal with Nidoran and Mr. Mime naming
+              poke_id = 'Nidoran♀' if poke_id.match('Nidoran_female')
+              poke_id = 'Nidoran♂' if poke_id.match('Nidoran_male')
+              poke_id = 'Mr. Mime' if poke_id.match('Mr_mime')
+              poke_id = "Farfetch'd" if poke_id.match('Farfetchd')
+              # To deal with MISSINGNO Pokemon
+              if @@pokemon_hash.key(poke_id) != nil
+                poke_num = @@pokemon_hash.key(poke_id)
+              else
+                poke_num = "0"
+              end
+              # Instantiate pokemon
+              pokemon = user.pokemon.new
+              # Set data
+              pokemon.poke_id = poke_id
+              pokemon.poke_num = poke_num
+              pokemon.creation_time_ms = i[:creation_time_ms]
+              pokemon.move_1 = i[:move_1]
+              pokemon.move_2 = i[:move_2]
+              pokemon.health = i[:stamina]
+              pokemon.max_health = i[:stamina_max]
+              pokemon.attack = i[:individual_attack]
+              pokemon.defense = i[:individual_defense]
+              pokemon.stamina = i[:individual_stamina]
+              pokemon.cp = i[:cp]
+              pokemon.iv = ((pokemon.attack + pokemon.defense + pokemon.stamina) / 45.0).round(3)
+              pokemon.nickname = i[:nickname]
+              pokemon.favorite = i[:favorite]
+              pokemon.num_upgrades = i[:num_upgrades]
+              pokemon.battles_attacked = i[:battles_attacked]
+              pokemon.battles_defended = i[:battles_defended]
+              pokemon.pokeball = i[:pokeball]
+              pokemon.height_m = i[:height_m]
+              pokemon.weight_kg = i[:weight_kg]
+              # Save record
+              pokemon.save
+            rescue
             end
-            # Instantiate pokemon
-            pokemon = user.pokemon.new
-            # Set data
-            pokemon.poke_id = poke_id
-            pokemon.poke_num = poke_num
-            pokemon.creation_time_ms = i[:creation_time_ms]
-            pokemon.move_1 = i[:move_1]
-            pokemon.move_2 = i[:move_2]
-            pokemon.health = i[:stamina]
-            pokemon.max_health = i[:stamina_max]
-            pokemon.attack = i[:individual_attack]
-            pokemon.defense = i[:individual_defense]
-            pokemon.stamina = i[:individual_stamina]
-            pokemon.cp = i[:cp]
-            pokemon.iv = ((pokemon.attack + pokemon.defense + pokemon.stamina) / 45.0).round(3)
-            pokemon.nickname = i[:nickname]
-            pokemon.favorite = i[:favorite]
-            pokemon.num_upgrades = i[:num_upgrades]
-            pokemon.battles_attacked = i[:battles_attacked]
-            pokemon.battles_defended = i[:battles_defended]
-            pokemon.pokeball = i[:pokeball]
-            pokemon.height_m = i[:height_m]
-            pokemon.weight_kg = i[:weight_kg]
-            # Save record
-            pokemon.save
           #when :pokemon_family
             #poke_id = i[:family_id].to_s
             #poke_id.slice! 'FAMILY_'
