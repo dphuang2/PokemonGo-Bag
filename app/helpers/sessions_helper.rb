@@ -72,7 +72,11 @@ module SessionsHelper
             user.items.create(item_id: item_id, count: count)
           when :pokemon_data
             # Set poke_id
-            poke_id = i[:pokemon_id].capitalize.to_s
+            if i[:pokemon_id].respond_to?(:capitalize)
+                poke_id = i[:pokemon_id].capitalize.to_s
+            else
+                poke_id = @@pokemon_hash[i[:pokemon_id].to_s].capitalize.to_s
+            end
             # To deal with Nidoran and Mr. Mime naming
             poke_id = 'Nidoran♀' if poke_id.match('Nidoran_female')
             poke_id = 'Nidoran♂' if poke_id.match('Nidoran_male')
